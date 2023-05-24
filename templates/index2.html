@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang=""en">
+<head> <meta charset="utf-8">
+<title> Text Utils</title>
+</head>
+<body>
+    Learning Django
+   <h1> Enter the text </h1>
+   <form action='/analyze' method='get'>
+    <textarea name='text' style='width: 637px; height: 208px;'></textarea><br>
+    <input type="checkbox" name="removepunc"> remove punctuations <br>
+    <input type="checkbox" name="fullcaps"> Needed in uppercase <br>
+    <input type="checkbox" name="removenewline"> NRemove new liness <br>
+    <input type="checkbox" name="charcounter"> Count the char <br>
+
+
+    <button type= 'submit'> Analyze text </button>
+</form>
+</body>
+</html>
