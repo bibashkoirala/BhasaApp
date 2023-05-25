@@ -50,7 +50,8 @@
     </div>
     <br>
     <div class="container">
-      <form action='/analyze' method='get'>
+      <form action='/analyze' method='post' >
+        {% csrf_token %}
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Example few words to translate:</label>
           <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="7"></textarea>
@@ -58,17 +59,34 @@
       
       <br>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" name="removepunc" id="flexSwitchCheckDefault">
+        <input class="form-check-input" type="checkbox" name="removepunc" id="flexSwitchCheckDefault" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">Remove Punctuation</label>
       </div>
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" name="translatejp" id="flexSwitchCheckDefault2">
+        <input class="form-check-input" type="checkbox" name="translatejp" id="flexSwitchCheckDefault2" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault2">To Japnese</label>
       </div><br>
       <button type="submit" class="btn btn-dark">Analyze</button>
     </form>
+    </div><br>
+       <!-- Analyzed Text -->
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+     
+      {% if Analyzed_text %}
+
+      <p>
+        Purpose: {{ purpose }}
+        {{ Analyzed_text }}
+        Pronunciation: {{ Pronunciation }}
+      </p>
+      {% else %}
+        <p>No text analyzed yet.</p>
+      {% endif %}
     </div>
-       
+  </div>
+</div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
