@@ -1,6 +1,6 @@
 #i created this. BibashJr
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from googletrans import Translator
 import pyttsx3
 
@@ -34,7 +34,7 @@ def analyze(request):
              if char not in punctuations:
                 analyzed += char
             params = {'purpose': 'removed punctation', 'Analyzed_text': analyzed}
-           # return render(request, 'analyze.html', params)
+         
             djtext = analyzed
 
     if translatejp == "on":
@@ -45,9 +45,9 @@ def analyze(request):
                 params['Pronunciation'] = pronunciation
                 generate_speech(pronunciation)
                 
-           # return render(request, 'analyze.html', params)
-                return redirect('index', params)
-             #   return render(request, 'index.html', params)
+          
+                return render(request,'index.html', params)
+           
             else:
              return HttpResponse("Translation failed")
         else:

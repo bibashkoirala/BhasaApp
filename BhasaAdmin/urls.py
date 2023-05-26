@@ -23,7 +23,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('analyze', views.analyze, name='analyze'),
     path('ex1', views.ex1, name='ex1'),
-   
+    path('', views.index, name='analyze'),
+
 
 
 ]
